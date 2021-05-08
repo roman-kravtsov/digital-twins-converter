@@ -158,12 +158,12 @@ class DigitalTwinsConverter extends Converter {
    */
   convert() {
     const now = new Date(Date.now());
-    this.targetModel.created = now;
-    this.targetModel.modified = now;
+    this.targetModel["@type"] = "ThingModel";
     this.targetModel["@context"] = ["https://www.w3.org/2019/wot/td/v1"];
-    this.targetModel["@type"] = "Thing";
     this.targetModel.description = this.digitalTwinsModel.description;
     this.targetModel.title = this.digitalTwinsModel.displayName;
+    this.targetModel.created = now;
+    this.targetModel.modified = now;
     for (const contentIitem of this.digitalTwinsModel.contents) {
       const mapper = this.__getContentMapper(contentIitem);
       const mappedData = mapper(contentIitem);
