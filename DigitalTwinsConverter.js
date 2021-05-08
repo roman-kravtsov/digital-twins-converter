@@ -159,7 +159,7 @@ class DigitalTwinsConverter extends Converter {
   convert() {
     const now = new Date(Date.now());
     this.targetModel["@type"] = "ThingModel";
-    this.targetModel["@context"] = ["https://www.w3.org/2019/wot/td/v1"];
+    this.targetModel["@context"] = ["http://www.w3.org/ns/td"];
     this.targetModel.description = this.digitalTwinsModel.description;
     this.targetModel.title = this.digitalTwinsModel.displayName;
     this.targetModel.created = now;
