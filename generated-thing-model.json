@@ -1,66 +1,30 @@
-{
-  "created": "2021-02-02T02:56:26.347Z",
-  "modified": "2021-02-02T02:56:26.347Z",
-  "@context": ["https://www.w3.org/2019/wot/td/v1"],
-  "@type": "Thing",
-  "description": "Reports current temperature and provides desired temperature control.",
-  "title": "Thermostat",
-  "properties": {
-    "targetTemperature": {
-      "name": "targetTemperature",
-      "description": "Allows to remotely specify the desired target temperature.",
-      "type": "number",
-      "writable": true
-    },
-    "maxTempSinceLastReboot": {
-      "name": "maxTempSinceLastReboot",
-      "description": "Returns the max temperature since last device reboot.",
-      "type": "number"
-    }
-  },
-  "actions": {
-    "getMaxMinReport": {
-      "name": "getMaxMinReport",
-      "description": "This command returns the max, min and average temperature from the specified time to the current time.",
-      "input": {
-        "type": "string",
-        "name": "since"
-      },
-      "output": {
-        "type": "object",
-        "properties": {
-          "maxTemp": {
-            "name": "maxTemp",
-            "type": "number"
-          },
-          "minTemp": {
-            "name": "minTemp",
-            "type": "number"
-          },
-          "avgTemp": {
-            "name": "avgTemp",
-            "type": "number"
-          },
-          "startTime": {
-            "name": "startTime",
-            "type": "string"
-          },
-          "endTime": {
-            "name": "endTime",
-            "type": "string"
-          }
-        },
-        "name": "since"
-      }
-    }
-  },
-  "events": {
-    "temperature": {
-      "name": "temperature",
-      "description": "Temperature in degrees Celsius.",
-      "data": {
-        "type": "number"
-      }
-    }
-  }
+"properties": {
+"targetTemperature": {
+	"name": "targetTemperature",
+	"type": "number",
+	"writable": true
+},
+"tempSinceLastReboot": {
+	"name": "tempSinceLastReboot",
+	"type": "number"
 }
+},
+"actions": {
+"getMaxMinReport": {
+	"name": "getMaxMinReport",
+	"input": {
+	"type": "string",
+	"name": "since"
+	}
+}
+},
+"events": {
+"temperature": {
+	"name": "temperature",
+	"description": "Temperature in degrees Celsius.",
+	"data": {
+	"type": "number"
+	}
+}
+}
+
